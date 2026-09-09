@@ -25,7 +25,7 @@ def train_model(X_train, y_train):
     )
 
     model.fit(X_train, y_train)
-    
+
     return model
 
 
@@ -65,8 +65,8 @@ def inference(model, X):
     preds : np.array
         Predictions from the model.
     """
-    # TODO: implement the function
-    pass
+    preds = model.predict(X)
+    return preds 
 
 def save_model(model, path):
     """ Serializes model to a file.

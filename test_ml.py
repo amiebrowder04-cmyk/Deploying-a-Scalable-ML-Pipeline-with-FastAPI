@@ -1,13 +1,20 @@
 import pytest
-# TODO: add necessary import
+from ml.model import compute_model_metrics
 
-# TODO: implement the first test. Change the function name and input as needed
-def test_one():
+
+
+def test_compute_model_metrics():
     """
-    # add description for the first test
+    # Test that compute_model_metrics returns the expected metrics 
     """
-    # Your code here
-    pass
+    y= [1, 1, 0, 0]
+    preds = [1, 0, 0, 0]
+
+    precision, recall, fbeta = compute_model_metrics(y,preds)
+
+    assert precision == pytest.approx(1.0)
+    assert recall == pytest.approx(0.5)
+    assert fbeta == pytest.approx(0.6667, abs=0.001)
 
 
 # TODO: implement the second test. Change the function name and input as needed

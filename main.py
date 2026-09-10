@@ -26,11 +26,11 @@ class Data(BaseModel):
     native_country: str = Field(..., example="United-States", alias="native-country")
 
 
-path = None  # TODO: enter the path for the saved encoder
+path = "model/encoder.pkl"
 encoder = load_model(path)
 
 
-path = None  # TODO: enter the path for the saved model
+path = "model/model.pkl"
 model = load_model(path)
 
 

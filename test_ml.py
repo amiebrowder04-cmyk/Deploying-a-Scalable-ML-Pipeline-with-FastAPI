@@ -1,5 +1,5 @@
 import pytest
-from ml.model import compute_model_metrics, inference
+from ml.model import compute_model_metrics, inference, train_model
 
 
 
@@ -31,11 +31,30 @@ def test_inference():
 
     assert list(predictions) == [0, 1, 1]
 
+X_train = [
+    [1, 10],
+    [2, 20],
+    [3, 30],
+    [4, 40]
+]
 
-# TODO: implement the third test. Change the function name and input as needed
-def test_three():
+y_train = [0, 0, 1, 1]
+
+def test_train_model():
     """
-    # add description for the third test
+    # Test that train_model creates a trained model 
     """
-    # Your code here
-    pass
+    X_train = [
+        [1, 10],
+        [2, 20],
+        [3, 30],
+        [4, 40]
+    ]
+
+    y_train = [0, 0, 1, 1]
+
+    model = train_model(X_train, y_train)
+   
+    predictions = model.predict(X_train)
+
+    assert len(predictions) == len(y_train)

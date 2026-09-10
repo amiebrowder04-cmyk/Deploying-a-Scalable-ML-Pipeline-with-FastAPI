@@ -66,7 +66,7 @@ save_model(encoder, encoder_path)
 # load the model
 model = load_model(
     model_path
-) 
+)
 
 
 preds = inference(model, X_test)
@@ -90,7 +90,7 @@ for col in cat_features:
             encoder,
             lb,
             model
-           
+
         )
         with open("slice_output.txt", "a") as f:
             print(f"{col}: {slicevalue}, Count: {count:,}", file=f)

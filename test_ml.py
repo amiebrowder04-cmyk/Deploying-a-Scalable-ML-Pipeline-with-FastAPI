@@ -1,5 +1,5 @@
 import pytest
-from ml.model import compute_model_metrics
+from ml.model import compute_model_metrics, inference
 
 
 
@@ -16,14 +16,20 @@ def test_compute_model_metrics():
     assert recall == pytest.approx(0.5)
     assert fbeta == pytest.approx(0.6667, abs=0.001)
 
+class FakeModel:
+    def predict(self, X):
+        return[0, 1, 1]
 
-# TODO: implement the second test. Change the function name and input as needed
-def test_two():
+def test_inference():
     """
-    # add description for the second test
+    # Tests to make sure that inference returns the models predictions 
     """
-    # Your code here
-    pass
+    X = [[1], [2], [3]]
+    model = FakeModel()
+
+    predictions = inference(model, X)
+
+    assert list(predictions) == [0, 1, 1]
 
 
 # TODO: implement the third test. Change the function name and input as needed
